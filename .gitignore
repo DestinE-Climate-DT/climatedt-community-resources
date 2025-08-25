@@ -1,0 +1,5 @@
+example_tropical_cyclone/data/
+example_tropical_cyclone/plots/
+example_tropical_cyclone/desp-authentication.py
+
+*/__pycache__
