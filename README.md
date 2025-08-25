@@ -7,4 +7,4 @@ This repository contains introduction materials and examples for those who are i
 **Note:** Upgraded access to the DestinE data platform is required for data access and must be requested via https://platform.destine.eu/access-policy-upgrade/ and one must abide by the DestinE data policies.
 
 **Start here:**
-It is a good idea to start from our [short introduction](link missing), which answers many frequent questions on how to access the DestinE data via DESP.
+It is a good idea to start from the material in the [introduction folder](https://github.com/DestinE-Climate-DT/climatedt-community-resources/blob/main/introduction/), which answers many frequent questions on how to access the DestinE data via DESP.
