@@ -1,0 +1,16 @@
+name: climatedt-tc
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python >=3.10
+  - ipykernel
+  - netcdf4
+  - huracanpy
+  - pip
+  - tempest-extremes
+  - pip:
+      - lxml
+      - earthkit==0.11.2
+      - covjsonkit==0.2.1
+      - polytope-client
