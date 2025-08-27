@@ -46,7 +46,7 @@ plot_path= f"{CURRENT_DIR}/plots/"  # Define plot output location
 
 # Define start and end dates
 start_date = datetime.strptime("2035-06-01", "%Y-%m-%d")
-end_date = datetime.strptime("2035-06-10", "%Y-%m-%d") #"2035-07-31"
+end_date = datetime.strptime("2035-06-05", "%Y-%m-%d") #"2035-07-31"
 
 out_file = f"{track_path}/icon_{start_date}_{end_date}.csv" #File where the tracks will be stored
 
