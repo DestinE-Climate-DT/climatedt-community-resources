@@ -28,7 +28,25 @@ If you are using Insula on the DESP to access data, the following instructions l
 
 ## Option 2: local data analysis
 
-To start you can clone the [polytope-examples repository](https://github.com/destination-earth-digital-twins/polytope-examples/tree/main/). There you can find many different examples on how to access and process the Climate DT data. To run these examples you will have to authenticate with your personal DESP username and password.
+To start you can clone the [polytope-examples repository](https://github.com/destination-earth-digital-twins/polytope-examples/tree/main/). There you can find many different examples on how to access and process the Climate DT data. To run these examples you will have to **authenticate with your personal DESP username and password**.
+
+There are different ways how to authenticate yourself. One way is to go on to the machine where you would like to work and run [desp-authentication.py](https://github.com/destination-earth-digital-twins/polytope-examples/blob/main/desp-authentication.py). This will create a `.polytopeapirc` file in your home folder which polytope will look for when trying to access restricted data. Another option is to call the polytope client with your user email and user key. That would look for instance like this:
+
+```
+from polytope.api import Client
+client = Client(
+        address=<adress where data is located>,
+        user_email='<YOUR EMAIL>',
+        user_key='<YOUR ECMWF API KEY>' or '<YOUR_DESP_KEY>'
+)
+
+# Optionally revoke previous requests
+client.revoke("all")
+
+# The data will be saved in the current working directory
+files = client.retrieve("destination-earth", request, output_path)
+```
+Only one way is needed, not both. After you have authenticated yourself you can run the above mentioned examples on the machine where you are working.
 
 To explore the Climate DT data locally (e.g. on a HPC/laptop), a Python environment can be created using the [requirements.txt](https://github.com/destination-earth-digital-twins/polytope-examples/blob/main/requirements.txt) or the [environment.yml](https://github.com/destination-earth-digital-twins/polytope-examples/blob/main/environment.yml), provided in the [polytopes examples repository](https://github.com/destination-earth-digital-twins/polytope-examples/tree/main). Here we briefly summarize two ways for you to create a suitable environment to work with the Climate DT data. 
 
