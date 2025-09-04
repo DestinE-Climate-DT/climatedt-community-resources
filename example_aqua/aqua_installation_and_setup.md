@@ -42,6 +42,10 @@ Here we present a short version of the installation process:
 1. Install the configuration file in the `~/.aqua/` with: `aqua install <your-machine-name>`
 2. Add the Climatedt Phase 1 catalog with: `aqua add catalog climatedt-phase1`
 
-If additionally you want to enable regrid capabilities:
+### 3.1 Enabling regrid capabilities
 
-3. Set the path for the grids download directory with: `aqua grids set <path-to-your-grids-directory>`. This will generate a grids, areas and weights directory in the specified path.
+If additionally you want to enable regrid capabilities (weighted areas and regrid):
+
+3. Set the path for the grids download directory with: `aqua grids set <path-to-your-auxiliary-data-directory>`. This will generate a grids, areas and weights directory in the specified path.
+4. Download the necessary grids. This is done with a bash script which downloads the grids from the DKRZ Swift service.
+   Run `bash <path-to-AQUA>/cli/grids-downloader/grids-downloader.sh -o <path-to-your-auxiliary-data-directory>/grids HealPix`. This will download only the HealPix grids. More grids are available, see the script for more details.
