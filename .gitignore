@@ -2,4 +2,6 @@ example_tropical_cyclone/data/
 example_tropical_cyclone/plots/
 example_tropical_cyclone/desp-authentication.py
 
+example_aqua/*.grb
+
 */__pycache__
