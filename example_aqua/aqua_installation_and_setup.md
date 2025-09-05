@@ -33,14 +33,14 @@ You should now be able to select this kernel to run the AQUA notebooks.
 
 ## 3. Installing the AQUA catalogs
 
-Differently from other access methods, AQUA needs to have an installed catalog, a series of YAML file with specifications on which data can retrieved, along with specification on the available variable, grids details and other relevant metadata.
+Differently from other access methods, AQUA needs to have an installed catalog, a series of YAML file with specifications on which data can be retrieved, along with specification on the available variable, grids details and other relevant metadata.
 
 They can be easily installed once the AQUA environment is set up and activated. Detailed information can be found in the [AQUA documentation](https://aqua.readthedocs.io/en/latest/aqua_console.html).
 
 Here we present a short version of the installation process:
 
 1. Install the configuration file in the `~/.aqua/` with: `aqua install <your-machine-name>`
-2. Add the Climatedt Phase 1 catalog with: `aqua add catalog climatedt-phase1`
+2. Add the Climatedt Phase 1 catalog with: `aqua add climatedt-phase1`
 
 ### 3.1 Enabling regrid capabilities
 
