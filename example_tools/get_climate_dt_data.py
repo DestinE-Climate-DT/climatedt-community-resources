@@ -5,7 +5,7 @@
 from polytope.api import Client
 import earthkit.data
 
-def get_data_as_file(request:dict, output_path:str) -> list:
+def get_data_as_file(request:dict, output_path:str, parallel:bool=False) -> list:
     """Get the data based on a request as a file.
 
     Parameters:
@@ -27,8 +27,9 @@ def get_data_as_file(request:dict, output_path:str) -> list:
         # user_key='<YOUR ECMWF API KEY>' or '<YOUR_DESP_KEY>'
     )
 
-    # Optionally revoke previous requests
-    client.revoke("all")
+    # Optionally revoke previous requests. Do NOT do this for parallel downloads.
+    if not parallel:
+        client.revoke("all")
 
     # The data will be saved in the current working directory
     files = client.retrieve("destination-earth", request, output_path)
