@@ -1,0 +1,17 @@
+{
+    "activity": "cmip6",
+    "class": "d1",
+    "dataset": "climate-dt",
+    "experiment": "hist",
+    "generation": "1",
+    "levtype": "sfc",
+    "model": "icon",
+    "expver": "0001",
+    "param": "166",
+    "realization": "1",
+    "resolution": "high",
+    "stream": "clte",
+    "time": "0000",
+    "type": "fc"
+}
+   
