@@ -4,4 +4,6 @@ example_tropical_cyclone/desp-authentication.py
 
 example_aqua/*.grb
 
+example_tools/data/
+
 */__pycache__
