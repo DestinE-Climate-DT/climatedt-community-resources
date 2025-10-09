@@ -11,7 +11,7 @@ Here are some frequently asked questions and direct links to the answer:
 **Q: How can I access the Climate DT simulation data?**    
 **A:** Take a look at the information in [climate_dt_data_access](climate_dt_data_access.md) and [making_a_request](./making_a_request.md).  
 **Q: My download is slow, how can I speed it up?**   
-**A:** You can parallelize the data access. An example is provided in [parallel_data_download.py](../example_tools/parallel_data_download.py).
+**A:** You can parallelize the data access. An example is provided in [parallel_data_download.py](../example_tools/parallel_data_download.py).     
 **Q: How do I adjust my data request?**    
 **A:** You can create a request for instance by using [STAC catalogue](https://qubed.lumi.apps.dte.destination-earth.eu/) and more information in [making_a_request](making_a_request.md).
 
