@@ -10,42 +10,109 @@ The Application for QUality Assessment (AQUA) is a model evaluation framework de
 
 The code is available at the [official repository](https://github.com/DestinE-Climate-DT/AQUA) under public license. It is possible to access the ClimateDT data with AQUA, using internally Polytope to request data. Differently from other access method, AQUA will build the entire dataset of the requested experiment, accessing the dataset as a Dask-enabled xarray Dataset. The request will be internally handled when the computation requires it.
 
-## 1. Getting the upgraded access to data
+## 1. Creating the AQUA environment
 
-Please follow the instruction available in the `introduction` folder.
-At the current stage the AQUA is available only for local data analysis.
-AQUA authenticates users via the `.polytopeapirc` file in your home folder, as described in the Option 2 of the `climate_dt_data_access.md` file or in the [AQUA documentation](https://aqua.readthedocs.io/en/latest/advanced_topics.html#polytope-access-to-destination-earth-data).
+AQUA is available as a Python package and can be installed in a local environment. The package is available on PyPI and can be installed with pip, but it requires extra dependencies which are not available on PyPI, such as CDO. For this reason, we document here how to create a conda environment for AQUA, which is the recommended way to use it.
 
-## 2. Creating the AQUA environment
+### 1.1 Install conda
 
-Detailed tutorial and specific instructions for creating the AQUA environment on different HPC machines are available in the [AQUA documentation](https://aqua.readthedocs.io/en/latest/installation.html).
+Please follow the instructions available on the [conda website](https://conda-forge.org/download/) to install conda on your machine. We recommend using the Miniconda distribution, which is a minimal version of conda that includes only the necessary packages to create and manage environments.
 
-If you are in a local machine or unknown HPC with conda support:
+### 1.2 Create the conda environment
 
-1. Clone the repository: `git clone git@github.com:DestinE-Climate-DT/AQUA.git`
-2. Enter the cloned directory: `cd AQUA`
-3. Create a conda environment: `conda env create -f environment.yml`
-4. Activate the conda environment: `conda activate aqua`
-5. Install ipykernel: `pip install ipykernel`
-6. Add the kernel to Jupyter: `python -m ipykernel install --user --name aqua`
+We recommend creating a conda environment for AQUA to manage the dependencies and avoid conflicts with other packages. The environment can be created with the following command:
 
-You should now be able to select this kernel to run the AQUA notebooks.
+```bash
+conda create -n aquarium -c conda-forge python=3.12 cdo netcdf4 eccodes=2.41.0
+conda activate aquarium
+pip install aqua-core
+```
+
+As it can be seen, the core package of AQUA is available on PyPI and can be installed with pip, but the dependencies are not available on PyPI and need to be installed with conda. The above command will create a conda environment named `aquarium` with Python 3.12 and the necessary dependencies for AQUA. Please check the [AQUA documentation](https://aqua.readthedocs.io/en/latest/installation.html) for more details on the installation process and for specific instructions for different HPC machines.
+
+If you are planning to use AQUA on Jupyter notebooks, you can also install the ipykernel package to make the kernel available in Jupyter:
+
+```bash
+pip install ipykernel
+python -m ipykernel install --user --name aquarium
+```
+
+You should now be able to select the `aquarium` kernel in Jupyter and use AQUA to access the Climate DT data.
+
+## 2. Installing AQUA auxiliary files
+
+AQUA relies on auxiliary yaml files for some of its functionalities, shielding the final user from the details of the data structure and the regridding process. The files will be installed in the `~/.aqua/` directory and can be easily installed with the following command:
+
+```bash
+aqua install <your-machine-name>
+```
 
 ## 3. Installing the AQUA catalogs
 
-Differently from other access methods, AQUA needs to have an installed catalog, a series of YAML file with specifications on which data can be retrieved, along with specification on the available variable, grids details and other relevant metadata.
+### 3.1 What are AQUA catalogs
 
-They can be easily installed once the AQUA environment is set up and activated. Detailed information can be found in the [AQUA documentation](https://aqua.readthedocs.io/en/latest/aqua_console.html).
+AQUA catalogs are a series of YAML files with specifications on how to retrieve data, along with specification on the grids details and other relevant metadata. They are necessary for AQUA to access the data and to know how to handle it.
 
-Here we present a short version of the installation process:
+The nomenclature of the catalogs for the ClimateDT is `climatedt-gen<X>`, where `X` is the generation of the data.
 
-1. Install the configuration file in the `~/.aqua/` with: `aqua install <your-machine-name>`
-2. Add the Climatedt Phase 1 catalog with: `aqua add climatedt-phase1`
+### 3.2 Installing the AQUA catalogs
 
-### 3.1 Enabling regrid capabilities
+The AQUA catalogs can be easily installed and will be added to the auxiliary files in the `~/.aqua/` directory. The command to install the Climate DT catalog for the generation 2 is:
 
-If additionally you want to enable regrid capabilities (weighted areas and regrid):
+```bash
+aqua add climatedt-gen2
+```
 
-3. Set the path for the grids download directory with: `aqua grids set <path-to-your-auxiliary-data-directory>`. This will generate a grids, areas and weights directory in the specified path.
-4. Download the necessary grids. This is done with a bash script which downloads the grids from the DKRZ Swift service.
-   Run `bash <path-to-AQUA>/cli/grids-downloader/grids-downloader.sh -o <path-to-your-auxiliary-data-directory>/grids HealPix`. This will download only the HealPix grids. More grids are available, see the script for more details.
+## 4. Experiment nomenclature in AQUA
+
+Data access with AQUA is based on a 4-level hierarchical structure, which is the following:
+
+| Name | Description | Rule | Example |
+|------|-------------|------|---------|
+| catalog | Top level of the hierarchy, for ClimateDT data it collects all the dataset of a specific generation. It can be automatically detected if missing.| <dataset>-gen<X> | climatedt-gen2 |
+| model | Name of the model used for the simulation. | <model-name>-<km-resolution> | IFS-NEMO-5km |
+| exp | Name of the experiment, which is a combination of the activity and the experiment. | <activity>-<experiment> | projections-ssp370 |
+| source | Name of the data source, usually associated to a specific resolution and stream. |  <freq (monthly, hourly, daily)>-<grid>-<levtype (sfc, pl, o2d, o3d, sl)> | hourly-hpz10-sfc |
+
+Please check the individual generation portfolio for the available models, experiments and sources. The above nomenclature is used to access the data with AQUA, which will automatically build the request based on the specified catalog, model, experiment and source.
+
+## 5. Explore a catalog content
+
+Before retrieving any data, the user can explore the content of the catalog to check which data is available and how it is organized.
+
+```python
+from aqua import show_catalog_content
+
+# Explore all available catalogs
+show_catalog_content()
+
+# Explore climatedt-gen2 catalog
+show_catalog_content(catalog="climatedt-gen2")
+
+# Explore the experiments available for the IFS-NEMO-5km model in the climatedt-gen2 catalog
+show_catalog_content(catalog="climatedt-gen2", model="IFS-NEMO-5km")
+```
+
+## 6. Grid deployment
+
+TODO
+
+## 7. Getting the upgraded access to data
+
+Please follow the instruction available in the `introduction` folder.
+At the current stage AQUA is available only for local data analysis.
+AQUA authenticates users via the `.polytopeapirc` file in your home folder, as described in the Option 2 of the `climate_dt_data_access.md` file or in the [AQUA documentation](https://aqua.readthedocs.io/en/latest/advanced_topics.html#polytope-access-to-destination-earth-data).
+
+## 8. Data access with AQUA
+
+Now that the code is installed and all auxiliary files are in place, you can start accessing the data with AQUA.
+Let's say you want to access the data for the IFS-NEMO-5km model, for the projections-ssp370 experiment, for the hourly-hpz10-sfc source. The command to access the data is the following:
+
+```python
+from aqua import Reader
+
+reader = Reader(catalog="climatedt-gen2", model="IFS-NEMO-5km", exp="projections-ssp370", source="hourly-hpz10-sfc", engine="polytope")
+data = reader.retrieve()
+```
+
+The data will be retrieved as a Dask-enabled xarray Dataset, with all the available variables and timestep for the specified source. The request will be internally handled by AQUA when the computation requires it, allowing for an efficient access to the data without the need to download the entire dataset.
