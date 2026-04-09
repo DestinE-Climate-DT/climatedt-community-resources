@@ -1,3 +1,8 @@
+# This is the list for the entire generation 2 data access.
+# If you want to reduce the amount of data to download,
+# please comment out the grids you don't need, or create a custom list with only the grids you want to deploy.
+# The 3d grids, which are the largest, have a "3d" in their name, 
+# so you can easily identify them and comment them out if you don't need them.
 source_grid_name:
   - hpz7-nested
   - hpz9-nested
