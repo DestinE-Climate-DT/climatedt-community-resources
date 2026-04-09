@@ -3,7 +3,7 @@
 The Application for QUality Assessment (AQUA) is a model evaluation framework designed for running diagnostics on high-resolution climate models, specifically for Climate DT climate simulations being part of Destination Earth activity. The package provides a flexible and efficient python3 framework to process and analyze large volumes of climate data. With its modular design, AQUA offers seamless integration of core functions and a wide range of diagnostic tools that can be run in parallel. AQUA offers:
 
 - Efficient handling of large datasets from high-resolution climate models;
-- Support for various data formats, such as NetCDF, GRIB, Zarr or FDB;
+- Support for various data formats, such as NetCDF, GRIB, Zarr, FDB or ARCO;
 - Robust and fast regridding functionality based on CDO;
 - Averaging and aggregation tools for temporal and spatial analyses;
 - Modular design for easy integration of new diagnostics. 
@@ -41,7 +41,7 @@ You should now be able to select the `aquarium` kernel in Jupyter and use AQUA t
 
 ## 2. Installing AQUA auxiliary files
 
-AQUA relies on auxiliary yaml files for some of its functionalities, shielding the final user from the details of the data structure and the regridding process. The files will be installed in the `~/.aqua/` directory and can be easily installed with the following command:
+AQUA relies on auxiliary yaml files for some of its functionalities, shielding the final user from the details of the data structure and the regridding process. The files will be installed in the `~/.aqua/` directory and can be easily installed with the following command (be sure the `aquarium` environment is activated):
 
 ```bash
 aqua install <your-machine-name>
@@ -69,10 +69,10 @@ Data access with AQUA is based on a 4-level hierarchical structure, which is the
 
 | Name | Description | Rule | Example |
 |------|-------------|------|---------|
-| catalog | Top level of the hierarchy, for ClimateDT data it collects all the dataset of a specific generation. It can be automatically detected if missing.| <dataset>-gen<X> | climatedt-gen2 |
-| model | Name of the model used for the simulation. | <model-name>-<km-resolution> | IFS-NEMO-5km |
-| exp | Name of the experiment, which is a combination of the activity and the experiment. | <activity>-<experiment> | projections-ssp370 |
-| source | Name of the data source, usually associated to a specific resolution and stream. |  <freq (monthly, hourly, daily)>-<grid>-<levtype (sfc, pl, o2d, o3d, sl)> | hourly-hpz10-sfc |
+| catalog | Top level of the hierarchy, for ClimateDT data it collects all the dataset of a specific generation. It can be automatically detected if missing.| `<dataset>-gen<X>` | `climatedt-gen2` |
+| model | Name of the model used for the simulation. | `<model-name>-<km-resolution>` | `IFS-NEMO-5km` |
+| exp | Name of the experiment, which is a combination of the activity and the experiment. | `<activity>-<experiment>` | `projections-ssp370` |
+| source | Name of the data source, usually associated to a specific resolution and stream. |  `<freq (monthly, hourly, daily)>-<grid>-<levtype (sfc, pl, o2d, o3d, sl)>` | `hourly-hpz10-sfc` |
 
 Please check the individual generation portfolio for the available models, experiments and sources. The above nomenclature is used to access the data with AQUA, which will automatically build the request based on the specified catalog, model, experiment and source.
 
@@ -95,7 +95,25 @@ show_catalog_content(catalog="climatedt-gen2", model="IFS-NEMO-5km")
 
 ## 6. Grid deployment
 
-TODO
+In order to enable regridding and weighted area statistics, AQUA needs to know the details of the grids used in the simulations. The grid details are stored in the auxiliary files, while we still need to deploy the grid files in the local environment.
+
+We first recommend to choose a target directory where the grids will be deployed and areas and weights files will be generated. The target directory can be any directory in the local environment, but we recommend to choose a directory with enough space to store the grids and the generated files. The grids occupy less than 5 GB of space.
+
+Let it be `<path-to-target-directory>` the path to the target directory, you can set it with the following command:
+
+```bash
+aqua grids set <path-to-target-directory>
+```
+
+We then need to deploy the grids.
+In this same folder, a script to deploy the grids necessary for the entire generation 2 is available.
+The script is contained in the `grids_deploy.py` file and can be run with the following command:
+
+```bash
+python grids_deploy.py --targetdir <path-to-target-directory>/grids
+```
+
+Please notice the extra `/grids` at the end of the target directory. This is necessary because our target directory will contain the subfolders `grids`, `areas` and `weights`, and we want to deploy the grids in the `grids` subfolder.
 
 ## 7. Getting the upgraded access to data
 
