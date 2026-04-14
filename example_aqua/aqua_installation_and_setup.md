@@ -25,7 +25,7 @@ We recommend creating a conda environment for AQUA to manage the dependencies an
 ```bash
 conda create -n aquarium -c conda-forge python=3.12 cdo netcdf4 eccodes=2.41.0
 conda activate aquarium
-pip install aqua-core
+pip install aqua-core==1.0.0a4
 ```
 
 As it can be seen, the core package of AQUA is available on PyPI and can be installed with pip, but the dependencies are not available on PyPI and need to be installed with conda. The above command will create a conda environment named `aquarium` with Python 3.12 and the necessary dependencies for AQUA. Please check the [AQUA documentation](https://aqua.readthedocs.io/en/latest/installation.html) for more details on the installation process and for specific instructions for different HPC machines.
