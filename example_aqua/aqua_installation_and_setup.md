@@ -72,7 +72,7 @@ Data access with AQUA is based on a 4-level hierarchical structure, which is the
 | catalog | Top level of the hierarchy, for ClimateDT data it collects all the dataset of a specific generation. It can be automatically detected if missing.| `<dataset>-gen<X>` | `climatedt-gen2` |
 | model | Name of the model used for the simulation. | `<model-name>-<km-resolution>` | `IFS-NEMO-5km` |
 | exp | Name of the experiment, which is a combination of the activity and the experiment. | `<activity>-<experiment>` | `projections-ssp370` |
-| source | Name of the data source, usually associated to a specific resolution and stream. |  `<freq (monthly, hourly, daily)>-<grid>-<levtype (sfc, pl, o2d, o3d, sl)>` | `hourly-hpz10-sfc` |
+| source | Name of the data source, usually associated to a specific resolution and stream. |  `<freq (monthly, hourly, daily)>-<grid>-<levtype (sfc, pl, o2d, o3d, sol)>` | `hourly-hpz10-sfc` |
 
 Please check the individual generation portfolio for the available models, experiments and sources. The above nomenclature is used to access the data with AQUA, which will automatically build the request based on the specified catalog, model, experiment and source.
 
