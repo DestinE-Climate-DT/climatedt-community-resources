@@ -1,0 +1,28 @@
+# This is the list for the entire generation 2 data access.
+# If you want to reduce the amount of data to download,
+# please comment out the grids you don't need, or create a custom list with only the grids you want to deploy.
+# The 3d grids, which are the largest, have a "3d" in their name, 
+# so you can easily identify them and comment them out if you don't need them.
+source_grid_name:
+  - hpz7-nested
+  - hpz9-nested
+  - hpz10-nested
+  - lon-lat-r100
+  - icon-R02B09-hpz7-nested-v3
+  - icon-R02B09-hpz7-nested-3d-v3
+  - icon-R02B09-hpz10-nested-v3
+  - icon-R02B09-hpz10-nested-3d-v3
+  - fesom-NG5-hpz7-nested-v3
+  - fesom-NG5-hpz7-nested-v4
+  - fesom-NG5-hpz7-nested-3d-v3
+  - fesom-NG5-hpz7-nested-3d-v4
+  - fesom-NG5-hpz9-nested-v4
+  - fesom-NG5-hpz9-nested-3d-v4
+  - fesom-NG5-hpz10-nested-v3
+  - fesom-NG5-hpz10-nested-3d-v3
+  - nemo-eORCA12-hpz7-nested-v3
+  - nemo-eORCA12-hpz7-nested-3d-v3
+  - nemo-eORCA12-hpz9-nested-v3
+  - nemo-eORCA12-hpz9-nested-3d-v3
+  - nemo-eORCA12-hpz10-nested-v3
+  - nemo-eORCA12-hpz10-nested-3d-v3
