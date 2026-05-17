@@ -1,11 +1,13 @@
 # FAQs
 Here are some frequently asked questions and direct links to the answer:
 
-### Climate DT simulations and data:  
+### Climate DT simulations and data:
+**Q: What is the difference between generation 1 and generation 2?**    
+**A:** The generation 1 simulations were produced early on in Climate DT, while they provide useful insights, the generation 2 simulations use updated model versions and include some improvements in comparison to generation 1 simulations. You should use generation 2 simulations for data analysis.    
 **Q: Which simulations are available?**   
-**A:** Check out the [Climate DT simulation overview](https://destine.ecmwf.int/climate-change-adaptation-digital-twin-climate-dt/)   
+**A:** Check out the Climate DT user guide for generation 2 simulations. For generation 1 there is currently an overview in [generation 1 simulation overview](https://destine.ecmwf.int/climate-change-adaptation-digital-twin-climate-dt/)   
 **Q: Which variables were saved?**    
-**A:** In [Data catalogue for ClimateDT](https://confluence.ecmwf.int/display/DDCZ/Climate+DT+Phase+1+data+catalogue#ClimateDTPhase1datacatalogue-Outputparameters) you can find an overview of the saved variables.
+**A:** You can find the generation 2 data catalogue in the Climate DT user guide. The overview for the generation 1 simulations can be found here: [Data catalogue for ClimateDT](https://confluence.ecmwf.int/display/DDCZ/Climate+DT+Phase+1+data+catalogue#ClimateDTPhase1datacatalogue-Outputparameters).
 
 ### Data access and download:
 **Q: How can I access the Climate DT simulation data?**    

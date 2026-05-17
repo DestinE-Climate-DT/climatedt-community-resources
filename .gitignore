@@ -1,6 +1,6 @@
-example_tropical_cyclone/data/
-example_tropical_cyclone/plots/
-example_tropical_cyclone/desp-authentication.py
+example_cyclone_tracking/data/
+example_cyclone_tracking/plots/
+example_cyclone_tracking/desp-authentication.py
 
 example_aqua/*.grb
 
