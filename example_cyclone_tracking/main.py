@@ -6,7 +6,7 @@
 # netcdf and .txt data that has already been created for a specific
 # date will not be overwritten but the date will be skipped.
 # 
-# Note: This is an example and not fully refined which causes TC to be detected that would likely be filtered out.  
+# Note: This is an example and not fully refined which causes cyclones to be detected that would likely be filtered out.  
 
 import os, sys
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -22,12 +22,12 @@ from preprocessing import preprocessing
 #### Modify ------------------------------------------------------------------
 # Define the basic requests for the data. Additional keys are added later on.
 request_basic={
-    "activity": ["scenariomip"],
+    "activity": ["projections"],
     "class": "d1",
     "dataset": "climate-dt",
     "experiment": "ssp3-7.0",
     "expver": "0001",
-    "generation": "1",
+    "generation": "2",
     "model": "icon",
     "realization": "1",
     "stream": "clte",
