@@ -52,13 +52,13 @@ To explore the Climate DT data locally (e.g. on a HPC/laptop), a Python environm
 
 ### 2.1 Using pip
 
-1. Generate a python virtual environment: `python -m venv /home/jovyan/my_env`
+1. Generate a python virtual environment: `python -m venv /path/to/my_env`
 
-2. Activate your environment: `source /home/jovyan/my_env/bin/activate`
+2. Activate your environment: `source /path/to/my_env/bin/activate`
 
 3. Install the required libraries from the [requirements.txt file]( https://github.com/destination-earth-digital-twins/polytope-examples/blob/main/requirements.txt): `pip install -r requirements.txt`
 
-4. Install ipykernel to make the kernel visible in your notebooks: `pip install ipykernel` then run `python -m venv /home/jovyan/my_env` and lastly `ipython kernel install --user --name=my_env`
+4. Install ipykernel to make the kernel visible in your notebooks: `pip install ipykernel` then run `python -m venv /path/to/my_env` and lastly `ipython kernel install --user --name=my_env`
 
 You should now be able to select this kernel and access the Climate DT data.
 
