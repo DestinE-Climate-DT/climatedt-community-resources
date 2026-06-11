@@ -23,12 +23,12 @@ Please follow the instructions available on the [conda website](https://conda-fo
 We recommend creating a conda environment for AQUA to manage the dependencies and avoid conflicts with other packages. The environment can be created with the following command:
 
 ```bash
-conda create -n aquarium -c conda-forge python=3.12 cdo netcdf4 eccodes=2.41.0
+conda create -n aquarium -c conda-forge python=3.14 cdo netcdf4 eccodes=2.46.0
 conda activate aquarium
-pip install aqua-core==1.0.0a4
+pip install aqua-core==1.0.0a5
 ```
 
-As it can be seen, the core package of AQUA is available on PyPI and can be installed with pip, but the dependencies are not available on PyPI and need to be installed with conda. The above command will create a conda environment named `aquarium` with Python 3.12 and the necessary dependencies for AQUA. Please check the [AQUA documentation](https://aqua.readthedocs.io/en/latest/installation.html) for more details on the installation process and for specific instructions for different HPC machines.
+As it can be seen, the core package of AQUA is available on PyPI and can be installed with pip, but the dependencies are not available on PyPI and need to be installed with conda. The above command will create a conda environment named `aquarium` with Python 3.14 and the necessary dependencies for AQUA. Please check the [AQUA documentation](https://aqua.readthedocs.io/en/latest/installation.html) for more details on the installation process and for specific instructions for different HPC machines.
 
 If you are planning to use AQUA on Jupyter notebooks, you can also install the ipykernel package to make the kernel available in Jupyter:
 
@@ -41,10 +41,12 @@ You should now be able to select the `aquarium` kernel in Jupyter and use AQUA t
 
 ## 2. Installing AQUA auxiliary files
 
-AQUA relies on auxiliary yaml files for some of its functionalities, shielding the final user from the details of the data structure and the regridding process. The files will be installed in the `~/.aqua/` directory and can be easily installed with the following command (be sure the `aquarium` environment is activated):
+AQUA relies on auxiliary yaml files for some of its functionalities, shielding the final user from the details of the data structure and the regridding process. The files will be installed in the `~/.aqua/` directory.
+
+A `install_aqua.sh` script is provided to automate the installation of these auxiliary files and can be easily installed with the following command (be sure the activation of the environment and the path are set in the script):
 
 ```bash
-aqua install <your-machine-name>
+./install_aqua.sh
 ```
 
 ## 3. Installing the AQUA catalogs
@@ -57,7 +59,7 @@ The nomenclature of the catalogs for the ClimateDT is `climatedt-gen<X>`, where 
 
 ### 3.2 Installing the AQUA catalogs
 
-The AQUA catalogs can be easily installed and will be added to the auxiliary files in the `~/.aqua/` directory. The command to install the Climate DT catalog for the generation 2 is:
+If you run the `install_aqua.sh` script, the catalogs will be automatically installed. If you want to install them manually, you can use the following command:
 
 ```bash
 aqua add climatedt-gen2
@@ -97,23 +99,7 @@ show_catalog_content(catalog="climatedt-gen2", model="IFS-NEMO-5km")
 
 In order to enable regridding and weighted area statistics, AQUA needs to know the details of the grids used in the simulations. The grid details are stored in the auxiliary files, while we still need to deploy the grid files in the local environment.
 
-We first recommend to choose a target directory where the grids will be deployed and areas and weights files will be generated. The target directory can be any directory in the local environment, but we recommend to choose a directory with enough space to store the grids and the generated files. The grids occupy less than 5 GB of space.
-
-Let it be `<path-to-target-directory>` the path to the target directory, you can set it with the following command:
-
-```bash
-aqua grids set <path-to-target-directory>
-```
-
-We then need to deploy the grids.
-In this same folder, a script to deploy the grids necessary for the entire generation 2 is available.
-The script is contained in the `grids_deploy.py` file and can be run with the following command:
-
-```bash
-python grids_deploy.py --targetdir <path-to-target-directory>/grids
-```
-
-Please notice the extra `/grids` at the end of the target directory. This is necessary because our target directory will contain the subfolders `grids`, `areas` and `weights`, and we want to deploy the grids in the `grids` subfolder.
+In the `install_aqua.sh` script, the deployment of the grids is automated and will be done after the installation of the auxiliary files. 
 
 ## 7. Getting the upgraded access to data
 
