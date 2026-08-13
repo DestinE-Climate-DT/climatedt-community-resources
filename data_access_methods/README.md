@@ -30,6 +30,26 @@ All are Python-based and have example notebooks or code snippets included here o
 |<a id="examples"></a>[Simplified use cases](requirements.md "Click here to find python environment requirements")| [polytope_use_case.ipynb](polytope_use_case.ipynb) | [HDA_use_case.ipynb](HDA_use_case.ipynb) | [earthdatahub_use_case.ipynb](earthdatahub_use_case.ipynb) |
 |Additional resources | [github-polytope-examples](https://github.com/destination-earth-digital-twins/polytope-examples/tree/main/climate-dt) | [DestinE-DataLake-Lab](https://github.com/destination-earth/DestinE-DataLake-Lab/tree/main)| [DestinE-earthdatahub-Tutorial](https://earthdatahub.destine.eu/tutorials) |
 <br><br>
+<!-- | Access method | Use case | Advantages | Drawbacks | Simplified use cases | Additional resources |
+|---|---|---|---|---|---|
+| **Polytope** | Access to all model outputs and the most built-in extraction features, like regridding | Full data portfolio with few restrictions on usage | Extraction is in GRIB or other formats that users are not used to | [polytope_use_case.ipynb](polytope_use_case.ipynb) | [github-polytope-examples](https://github.com/destination-earth-digital-twins/polytope-examples/tree/main/climate-dt) |
+| **HDA** | Access to all model outputs in complete form (full field for a specific variable) | Easy connection to other datasets like the application output of Climate DT or Sentinel satellite products, similar features to Polytope | Some usage limits, requests are more complicated than Polytope | [HDA_use_case.ipynb](HDA_use_case.ipynb) | [DestinE-DataLake-Lab](https://github.com/destination-earth/DestinE-DataLake-Lab/tree/main) |
+| **Earth Data Hub** | Analysis-ready outputs of essential variables, already regridded to a regular lon/lat grid | Fast access without dealing with unfamiliar grids and data formats | Usage limits, limited number of variables | [earthdatahub_use_case.ipynb](earthdatahub_use_case.ipynb) | [DestinE-earthdatahub-Tutorial](https://earthdatahub.destine.eu/tutorials) | -->
+
+Before accessing the data, it is essential to understand which data is available. In [ClimateDT user guide](https://platform.destine.eu/docs/climate-dt-user-guide/doc/index.html) you will find a detailed description of the three coupled atmosphere–ocean modelswithin the project, as well as an overview on the [available simulations](https://platform.destine.eu/docs/climate-dt-user-guide/doc/models/index.html#models-simulations-intro). 
+Note that all access methods that you will learn here use a dictionary-based ```request``` syntax. 
+
+The Table below summarizes the Data structure that along with the data keys (see [Data Structure and Keys](https://platform.destine.eu/docs/climate-dt-user-guide/doc/data/data_structure.html#data-structure) in the User guide), will help you build a detailed request that adjusts to your needs.  
+
+
+| Simulations | Activity | Data Bridge | HEALPix output resolution |
+|---|---|---|---|
+| ICON – control, historical, SSP3-7.0 (r1) | baseline / projections | LUMI | high/standard |
+| IFS-FESOM – control, historical, SSP3-7.0 (r1) | baseline / projections | LUMI | high/standard |
+| IFS-NEMO – control, historical (r1), SSP3-7.0 (r1) | baseline / projections | MN5 | high/standard |
+| IFS-FESOM – storyline simulations (r1–r5) | story-nudging | MN5 | high/standard |
+
+<br><br>
 
 
 > **Note**: HDA is not a single method but rather a set of HTTP requests that can be made using different Python packages. The main connecting factor is that ```destinelab``` is used to manage the authorisation for the Destination Earth datasets. Furthermore, the main concept of the HDA are STAC catalogues that are used to search and identify data.
