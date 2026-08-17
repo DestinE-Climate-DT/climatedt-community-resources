@@ -1,5 +1,5 @@
 ## Set up your python environment and access permissions
-Here we describe how to create a python environment with all required packages to run the [Simplified use cases](#examples).
+Here we describe how to create a python environment with all required packages to run the [Simplified use cases](README.md#examples).
 
 ### 1. Creating python environment 
 
@@ -9,6 +9,8 @@ Here we describe how to create a python environment with all required packages t
 Make sure the Python 3.10 or higher. You can check your version with ```python3 --version```. Then install the dependencies:
 
 ```pip install -r requirements.txt```
+
+The dependencies installed here satisfies all requirements for testing the Jupyter Notebooks in this project as well as any from the [Additional resources](README.md#resources).
 
 ### 2. Authentication
 

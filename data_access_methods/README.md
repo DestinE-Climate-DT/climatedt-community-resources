@@ -28,7 +28,7 @@ All are Python-based and have example notebooks or code snippets included here o
 |Advantages| Full data portfolio with few restrictions on usage | Easy connection to other datasets like the application output of Climate DT or Sentinel satellite products, similar features to Polytope |  Fast access without dealing with unfamiliar grids and data formats |
 |Drawbacks| Extraction is in Grib or other formats that users are not used to | Some usage limits, requests are more complicated than Polytope  |  Usage limits, limited number of variables |
 |<a id="examples"></a>[Simplified use cases](requirements.md "Click here to find python environment requirements")| [polytope_use_case.ipynb](polytope_use_case.ipynb) | [HDA_use_case.ipynb](HDA_use_case.ipynb) | [earthdatahub_use_case.ipynb](earthdatahub_use_case.ipynb) |
-|Additional resources | [github-polytope-examples](https://github.com/destination-earth-digital-twins/polytope-examples/tree/main/climate-dt) | [DestinE-DataLake-Lab](https://github.com/destination-earth/DestinE-DataLake-Lab/tree/main)| [DestinE-earthdatahub-Tutorial](https://earthdatahub.destine.eu/tutorials) |
+|<a id="resources"></a>[Additional resources](requirements.md "Click here to find python environment requirements") | [github-polytope-examples](https://github.com/destination-earth-digital-twins/polytope-examples/tree/main/climate-dt) | [DestinE-DataLake-Lab](https://github.com/destination-earth/DestinE-DataLake-Lab/tree/main)| [DestinE-earthdatahub-Tutorial](https://earthdatahub.destine.eu/tutorials) |
 <br><br>
 <!-- | Access method | Use case | Advantages | Drawbacks | Simplified use cases | Additional resources |
 |---|---|---|---|---|---|
