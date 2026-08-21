@@ -8,3 +8,6 @@ This repository contains introduction materials and examples for those who are i
 
 **Start here:**
 It is a good idea to start from the material in the [introduction folder](https://github.com/DestinE-Climate-DT/climatedt-community-resources/blob/main/introduction/), which answers many frequent questions on how to access the DestinE data via DESP.
+
+>[!IMPORTANT]
+>This repository does not contain the documentation about the models, simulations, impact sector applications or details of data access. Please refer to the [Climate DT User Guide](https://platform.destine.eu/services/documents-and-api/doc/?service_name=climate-dt-user-guide) for that information.
