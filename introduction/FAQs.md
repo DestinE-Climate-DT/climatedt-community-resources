@@ -3,24 +3,24 @@ Here are some frequently asked questions and direct links to the answer:
 
 ### Climate DT simulations and data:
 **Q: What is the difference between generation 1 and generation 2?**    
-**A:** The generation 1 simulations were produced early on in Climate DT, while they provide useful insights, the generation 2 simulations use updated model versions and include some improvements in comparison to generation 1 simulations. You should use generation 2 simulations for data analysis.    
+**A:** The generation 1 simulations were produced early on in Climate DT, while they provide useful insights, the generation 2 simulations use updated model versions and include improvements in comparison to generation 1 simulations. You should use generation 2 simulations for data analysis.    
 **Q: Which simulations are available?**   
-**A:** Check out the Climate DT user guide for generation 2 simulations. For generation 1 there is currently an overview in [generation 1 simulation overview](https://destine.ecmwf.int/climate-change-adaptation-digital-twin-climate-dt/)   
+**A:** Check out the [Climate DT user guide](https://platform.destine.eu/docs/climate-dt-user-guide/doc/simulations/index.html#) for generation 2 simulations. For generation 1 there is currently an overview in [generation 1 simulation overview](https://destine.ecmwf.int/climate-change-adaptation-digital-twin-climate-dt/)   
 **Q: Which variables were saved?**    
-**A:** You can find the generation 2 data catalogue in the Climate DT user guide. The overview for the generation 1 simulations can be found here: [Data catalogue for ClimateDT](https://confluence.ecmwf.int/display/DDCZ/Climate+DT+Phase+1+data+catalogue#ClimateDTPhase1datacatalogue-Outputparameters).
+**A:** You can find the generation 2 data catalogue in the [Climate DT user guide](https://platform.destine.eu/docs/climate-dt-user-guide/doc/data/data_catalogue.html#data-catalogue). The overview for the generation 1 simulations can be found here: [Data catalogue for ClimateDT](https://confluence.ecmwf.int/display/DDCZ/Climate+DT+Phase+1+data+catalogue#ClimateDTPhase1datacatalogue-Outputparameters).
 
 ### Data access and download:
 **Q: How can I access the Climate DT simulation data?**    
-**A:** Take a look at the information in [climate_dt_data_access](climate_dt_data_access.md) and [making_a_request](./making_a_request.md).  
+**A:** Take a look at the information in the [Climate DT user guide](https://platform.destine.eu/docs/climate-dt-user-guide/doc/data/index.html#data-and-access). Additionally, a brief introduction is provided in [climate_dt_data_access](climate_dt_data_access.md) and [making_a_request](./making_a_request.md).
 **Q: My download is slow, how can I speed it up?**   
 **A:** You can parallelize the data access. An example is provided in [parallel_data_download.py](../example_tools/parallel_data_download.py).     
 **Q: How do I adjust my data request?**    
-**A:** You can create a request for instance by using [STAC catalogue](https://qubed.lumi.apps.dte.destination-earth.eu/) and more information in [making_a_request](making_a_request.md).
+**A:** You can create a request for instance by using [STAC catalogue](https://qubed.lumi.apps.dte.destination-earth.eu/) and more information in [making_a_request](making_a_request.md). You can also check the [Full data layout](https://platform.destine.eu/docs/climate-dt-user-guide/doc/data/data_catalogue.html#full-data-layout) provided in the user guide.
 
 ### Data analysis and tools:
 **Q: Where can I run my interactive analysis?**   
 **A:** You can run it either in [Insula Code](https://platform.destine.eu/services/service/insula-code/) or use your local or an HPC machine which supports python/jupyter.   
-**Q: Are there example notebooks for my interactive analysis?**  
+**Q: Are there example notebooks for my interactive analysis of model data?**  
 **A:** Many examples are in [Polytope examples](https://github.com/destination-earth-digital-twins/polytope-examples/tree/main/climate-dt) or you can checkout the [AQUA example](../example_aqua/) or the [Cyclone detection example](../example_tropical_cyclone/).      
 **Q: Where can I learn about HEALPix?**     
 **A:** There are multiple places to learn about HEALPix and how to process it. For instance an [introduction by easy.gems](https://easy.gems.dkrz.de/Processing/healpix/index.html) and in the Polytope resources, as well as, Earthkit.
