@@ -1,8 +1,27 @@
 ## Action plan 2027 Global Hackathon
 
+**The repository currently:**
+- describes the three ClimateDT data access methods: Polytope, Harmonized Data Access, and Earth Data Hub;
+
+- provides a comparison table covering their main use cases, advantages, limitations, and links to the existing public GitHub repositories;
+
+- provides a common Python environment, including dependencies and installation instructions, for running examples with all three access methods;
+
+- includes simple examples for retrieving data with each method; 
+
+- introduces key concepts, such as the "Data Bridge," in a concise and accessible way.
+
+**What could still be done or improved:**
+ 
+- Document parameter compatibility rules (parameters- levtypes) and add a request-building guidance.
+
+- Expand polytope-examples Project, avoiding that the existing material is not duplicated (i.e. regional analysis of daily and hourly variables.
+).
+ 
+
 || September | October | Coding Sprints (Nov) |
 |-|----------|----------|----------|
-| Date |  07.09  | End of October (TBD)  | 09.11 - 11.11 |
+| Date |  07.09  | 28.09  | 09.11 - 11.11 |
 | Description |  Internal A10 meeting | Meeting with A10 and external Project leaders (ECMWF)  | Takes place in Hamburg. We might be able to meet Thomas Rackow in person.  |
 | Goal | Present the Github project that centralizes all data access methods documentation| Present an improved version of the Github project that centralizes all data access methods documentation <br><br> Preliminary plan of DWD contribution to the already existing material. | Develope new material (Jupyter Notbook) that could contribute to Hackathon |
 |Action Plan | **1.** Based on the feedback from multiple users, data access methods should be easier to understand. <br><br> **2.** Document parameter compatibility rules (parameters- levtypes) and add a request-building guidance (in progress).<br><br> **3.** Create a "Which notebook should I use?" with a categorized notebook catalog (in progress). | **1.** Address Feedbacks from internal meting. <br><br> **2.** Consolidate the methods and simple use examples. <br><br> **3.** Create the first example that combines them to help decide among the different methods (Under discussion). <br><br> **4.** Collect and present first ideas of DWD contribution to the already existing material (see **Notes** below). | Start DWD contribution to the already existing material. |
